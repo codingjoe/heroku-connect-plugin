@@ -33,8 +33,5 @@
     "sinon": "^2.1.0",
     "standard": "^10.0.2",
     "unexpected": "^10.27.0"
-  },
-  "peerDependencies": {
-    "heroku-pg": "^2.9.0"
   }
 }
