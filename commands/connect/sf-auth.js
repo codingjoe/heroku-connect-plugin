@@ -44,6 +44,10 @@ function * run (context, heroku) {
       args.login_url = context.flags.login
     }
 
+    if (context.flags.environment) {
+      args.environment = context.flags.environment
+    }
+
     let response = yield api.request(context, 'POST', url, args)
     redir = response.json.redirect
 
@@ -63,6 +67,7 @@ module.exports = {
   flags: [
     {name: 'callback', char: 'c', description: 'final callback URL', hasValue: true},
     {name: 'login', char: 'l', description: 'alternate Salesforce login URL', hasValue: true},
+    {name: 'environment', char: 'e', description: '"production", "sandbox", or "custom" [defaults to "production"]', hasValue: true},
     {name: 'resource', description: 'specific connection resource name', hasValue: true},
     regions.flag
   ],
